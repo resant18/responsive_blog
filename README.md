@@ -27,3 +27,36 @@ Check the page with the Chrome Dev Tools:
 * Try out emulation on different devices, portrait and landscape (click the icon next to the dimensions). What problems do you notice with each image? Which ones look worse?
 
 Check the page from Page Speed Insights -- lots more problems!
+
+## Command To Run the Server
+run ```node server.js```
+
+## How I Work On This Project
+
+1. Run ```npm install``` in the current project directory to install dependency
+2. Install [GraphicMagick-1.3.2.tar.xz] (https://sourceforge.net/projects/graphicsmagick/files/)
+3. Unzip the tar.xz file into the directory where the grunt.js file is, using command 
+
+gzip -d GraphicMagick-1.3.2.tar.xz | tar -xvf -
+
+4. Install Grunt CLI, using command:
+
+npm install -g grunt-cli
+
+5. Run command ```grunt``` to execute the grunt script file.
+
+6. I got this error: Warning: Could not execute GraphicsMagick/ImageMagick: identify "-ping" "-format" "%m:%T:%s" "public/images_src/cockatoos.jpg" this most likely means the gm/convert binaries can't be found Use --force to continue.
+
+7. Install brew to reinstall GraphicMagic using command: 
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install imagemagick
+brew install graphicsmagick
+
+8. Run grunt again, make sure to edit the grunt.js file to specify the new directory of images files.
+9. I used flatten=true when copying just the folder fixed, without the subfolders structure.
+
+
+
+
+
