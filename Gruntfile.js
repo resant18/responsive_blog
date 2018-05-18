@@ -14,15 +14,23 @@ module.exports = function(grunt) {
         options: {
           engine: 'im',
           sizes: [{
-            /*
-            Change these:
-            
-            width: ,
-            suffix: ,
-            quality:
-            */
+            width: 1024,
+            suffix: '_1x',
+            quality: 30
+          }, {
+            width: 640,
+            height: 480,
+            gravity: 'center',
+            suffix: '_medium',
+            aspectRatio: false,
+            quality: 30            
+          }, {
+            width: 320,
+            gravity: 'center',
+            suffix: '_small',
+            quality: 30  
           }]
-        },
+        },        
 
         /*
         You don't need to change this part if you don't change
@@ -31,16 +39,16 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: ['*.{gif,jpg,png}'],
-          cwd: 'images_src/',
-          dest: 'images/'
+          cwd: 'public/images_src/',
+          dest: 'public/images/'
         }]
       }
-    },
+    },    
 
     /* Clear out the images directory if it exists */
     clean: {
       dev: {
-        src: ['images'],
+        src: ['public/images'],
       },
     },
 
@@ -48,7 +56,7 @@ module.exports = function(grunt) {
     mkdir: {
       dev: {
         options: {
-          create: ['images']
+          create: ['public/images']
         },
       },
     },
@@ -58,8 +66,9 @@ module.exports = function(grunt) {
       dev: {
         files: [{
           expand: true,
-          src: 'images_src/fixed/*.{gif,jpg,png}',
-          dest: 'images/'
+          flatten: true,
+          src: 'public/images_src/fixed/*.{gif,jpg,png}',
+          dest: 'public/images/fixed'
         }]
       },
     },
