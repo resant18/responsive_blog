@@ -29,7 +29,8 @@ Check the page with the Chrome Dev Tools:
 Check the page from Page Speed Insights -- lots more problems!
 
 ## Command To Run the Server
-run ```node server.js```
+run ```node server.js``` in command line
+open http://localhost:10001/ in the browser
 
 ## How I Work On This Project
 
